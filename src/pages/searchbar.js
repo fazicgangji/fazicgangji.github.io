@@ -37,7 +37,7 @@ export class SearchBar extends React.Component {
     handleOnKeyDown(evt) {
         
         if(evt.key === 'Enter') {
-            if(this.state.value != '') {
+            if(this.state.value !== '') {
                 getSearchBarRequest(this.state.inputValue, this.props);
             };
             this.reset();

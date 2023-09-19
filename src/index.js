@@ -20,30 +20,22 @@ function Logo() {
     );
 }
 
-
-
-//Future implementation
-// function EvaluationApp() {
-//     return(
-//         <div>
-            
-//         </div>
-//     )
-// }
-
 //Home Page
 class Home extends React.Component {
     constructor () {
         super()
         this.state = {
-          page: 'HomeCarousel'
+          page: 'Phone Validation Page'
         }
 
         this.handleHomeButton = this.handleHomeButton.bind(this);
+        this.handleJoinCoversationButton = this.handleJoinCoversationButton.bind(this);
         this.handleSurveyButton = this.handleSurveyButton.bind(this);
         this.handleTuoLabs = this.handleTuoLabs.bind(this);
         this.handleAppsPage = this.handleAppsPage.bind(this);
         this.handleEvaluationPage = this.handleEvaluationPage.bind(this);
+        this.handlePhoneValidationPage = this.handlePhoneValidationPage.bind(this);
+        this.handleRegistrationPage = this.handleRegistrationPage.bind(this);
       }
       render () {
         return (
@@ -54,12 +46,17 @@ class Home extends React.Component {
                   searchBarClass={getSearchBarClass(this.state.page === 'HomeCarousel')}
                   handleSurveyButton={this.handleSurveyButton}     
                   handleAppsPage={this.handleAppsPage}   
-                  handleEvaluationPage={this.handleEvaluationPage}        
+                  handleEvaluationPage={this.handleEvaluationPage}  
+                  handleTuoLabs={this.handleTuoLabs}  
+                  handlePhoneValidationPage={this.handlePhoneValidationPage}
                 />
                 <button className='btnHeader' name='survey' onClick={this.handleSurveyButton}>SURVEY</button>
-                <button className='btnHeader' name='tuo labs' onClick={this.handleTuoLabs}>TUO LABS</button>                   
+                <button className='btnHeader' name='tuo labs' onClick={this.handleJoinCoversationButton}>Join Conversation</button>                   
             </header>
-            <Router page={this.state.page}/>
+            <Router 
+                page={this.state.page}
+                handleRegistrationPage={this.handleRegistrationPage}
+            />
           </div>
         )
       }
@@ -67,6 +64,11 @@ class Home extends React.Component {
       handleHomeButton(){
         this.setState({
             page: 'HomeCarousel'
+        });
+      }
+      handleJoinCoversationButton(){
+        this.setState({
+            page: 'Join COnversation Page'
         });
       }
       handleSurveyButton(){
@@ -87,6 +89,16 @@ class Home extends React.Component {
       handleEvaluationPage(){
         this.setState({
           page: 'Evaluation Page'
+        })
+      }
+      handlePhoneValidationPage(){
+        this.setState({
+          page: 'Phone Validation Page'
+        })
+      }
+      handleRegistrationPage(){
+        this.setState({
+          page: 'Registration Page'
         })
       }
 }
